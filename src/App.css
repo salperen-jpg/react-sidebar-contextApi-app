@@ -1,38 +1,199 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #f4f332;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+main {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.sidebar-toggle {
+  position: fixed;
+  top: 3rem;
+  left: 2rem;
+  background-color: transparent;
+  color: #000;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  animation: bounce 2s ease-in-out infinite;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes bounce {
+  0% {
+    transform: scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.primary-btn {
+  border: none;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  background-color: black;
+  color: #f4f332;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.3s linear;
+}
+.primary-btn:hover {
+  color: #000;
+  background-color: #fff;
+}
+.my-logo {
+  width: 75px;
+  height: 75px;
+  background-color: #f4f332;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 3px 4px 5px #000;
+}
+
+.logo {
+  font-family: 'Festive', cursive;
+  font-size: 2rem;
+  background-color: transparent;
+  column-rule-color: #000;
+}
+.close-btn {
+  background-color: transparent;
+  color: red;
+  font-size: 3rem;
+  border: none;
+  cursor: pointer;
+}
+/* SIDEBAR STYLING */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  transform: translate(-100%);
+  transition: all 0.2 linear;
+  background-color: #d5645d;
+}
+.show-sidebar {
+  transform: translate(0);
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.menu-links {
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+.menu-links li {
+  list-style-type: none;
+  margin-top: 2rem;
+  transition: all 0.3s ease-in;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-right: 0.1rem;
+}
+.menu-links li:hover {
+  background-color: #f4f332;
+  box-shadow: 3px 4px 5px #000;
+  margin-right: 0.3rem;
+}
+.menu-links li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.menu-links span {
+  color: #000;
+}
+.menu-links a {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 1.4rem;
+}
+li i {
+  margin-right: 0.5rem;
+  color: #000;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  z-index: -1;
+}
+.show-modal {
+  z-index: 10;
+  visibility: visible;
+}
+.modal-contaianer {
+  background: #d5645d;
+  color: #fff;
+  border-radius: 5px;
+  width: 90vw;
+  height: 30vh;
+  max-width: 620px;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  font-size: 3rem;
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 670px) {
+  .sidebar {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .sidebar {
+    width: 400px;
+  }
+  i {
+    font-size: 2rem;
   }
 }
